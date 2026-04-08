@@ -19,7 +19,7 @@ module top;
   
   ha_if hif();  //Creating instance for interface
   
-  HA_DUT name(hif);
+  HA_DUT name(hif); //instantiate the DUT and pass the hif
   initial begin
     hif.a = 3'b010;
     hif.b = 3'b101;
