@@ -1,0 +1,29 @@
+// Creating interface for Half Adder Signal a,b,sum and cout
+
+interface ha_if;
+  logic [2:0] a;
+  logic [2:0] b;
+  logic [3:0] sum;
+  logic cout;
+endinterface
+
+//Design code
+
+module HA_DUT(ha_if hif);
+  assign {hif.cout, hif.sum} = hif.a + hif.b;
+endmodule
+
+//Tb
+
+module tb;
+  
+  ha_if hif();  //Creating instance for interface
+  
+  HA_DUT name(hif);
+  initial begin
+    hif.a = 3'b010;
+    hif.b = 3'b101;
+    #1;
+    $display("SUM:%0b CARRY: %0b",hif.sum, hif.cout);
+  end
+endmodule  
